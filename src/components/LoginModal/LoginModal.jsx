@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../../redux/auth/slice";
+import { loginUser } from "../../redux/auth/operations";
 
 const LoginModal = () => {
     const dispatch = useDispatch();
