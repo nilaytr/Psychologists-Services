@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { AppointmentModal } from "../AppointmentModal/AppointmentModal";
 import { selectUser } from "../../redux/auth/selectors";
-import Swal from 'sweetalert2';
+import AppointmentModal from "../AppointmentModal/AppointmentModal";
+import Swal from "sweetalert2";
 
 const ReadMore = ({ psychologist }) => {
     const user = useSelector(selectUser);
@@ -21,32 +21,39 @@ const ReadMore = ({ psychologist }) => {
         setShowModal(true);
     };
 
-    const closeModal = () => {
-        setShowModal(false);
-    };
+    const closeModal = () => setShowModal(false);
 
     return (
-        <>
-            <div>
-                <ul>
-                    {psychologist.reviews.map((review, reviewIndex) => (
-                        <li key={reviewIndex}>
-                            <div>{review.reviewer ? review.reviewer[0].toUpperCase() : "?"}</div>
-                            <div>{review.reviewer}</div>
+        <div className="read-more-content">
+            <h3>Reviews</h3>
+            <ul>
+                {psychologist?.reviews?.length > 0 ? (
+                    psychologist.reviews.map((review, index) => (
+                        <li key={review.id || index}>
+                            <div>
+                                {review.reviewer ? review.reviewer[0].toUpperCase() : "?"}
+                            </div>
+                            <div>{review.reviewer || "Anonymous"}</div>
                             <div>
                                 <img src="/icons/Star.svg" alt="star" />
                                 <p>{review.rating}</p>
                             </div>
                             <div>{review.comment}</div>
                         </li>
-                    ))}
-                </ul>
-                <button onClick={handleShowModal}>Make an appointment</button>
-                {showModal && (
-                    <AppointmentModal psychologist={psychologist} onClose={closeModal} />
+                    ))
+                ) : (
+                    <li>No reviews available.</li>
                 )}
-            </div>
-        </>
+            </ul>
+
+            <button onClick={handleShowModal}>
+                Make an appointment
+            </button>
+
+            {showModal && (
+                <AppointmentModal psychologist={psychologist} onClose={closeModal} />
+            )}
+        </div>
     );
 };
 
