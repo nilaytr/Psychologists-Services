@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../redux/auth/operations";
 
-const LoginModal = () => {
+const LoginModal = ({ onSuccess }) => {
     const dispatch = useDispatch();
 
     const validationSchema = Yup.object({
@@ -23,9 +23,12 @@ const LoginModal = () => {
             password: "",
         },
     });
-
-    const onSubmit = (values) => {
-        dispatch(loginUser(values));
+    
+    const onSubmit = async (values) => {
+        const result = await dispatch(loginUser(values));
+        if (result.meta.requestStatus === "fulfilled") {
+            if (onSuccess) onSuccess();
+        }
     };
 
     return (
