@@ -12,6 +12,7 @@ export const registerUser = createAsyncThunk(
     "auth/registerUser",
     async ({ name, email, password }, thunkAPI) => {
         try {
+            console.log("Register attempt:", email, password);
             const response = await createUserWithEmailAndPassword(
                 auth,
                 email,
@@ -19,8 +20,14 @@ export const registerUser = createAsyncThunk(
             );
             const user = response.user;
             await updateProfile(user, { displayName: name });
-            return user;
+
+            return {
+                uid: user.uid,
+                email: user.email,
+                displayName: user.displayName,
+            };
         } catch (error) {
+            console.error("Register error:", error.code, error.message);
             return thunkAPI.rejectWithValue(error.message);
         }
     }
@@ -36,7 +43,12 @@ export const loginUser = createAsyncThunk(
                 password,
             );
             const user = response.user;
-            return user;
+
+            return {
+                uid: user.uid,
+                email: user.email,
+                displayName: user.displayName,
+            };
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }
@@ -48,7 +60,7 @@ export const logoutUser = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             await signOut(auth);
-            return;
+            return { success: true };
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }

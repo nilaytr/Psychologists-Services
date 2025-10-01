@@ -81,12 +81,12 @@ const Navigation = () => {
                 </Suspense>
             </main>
             {isLoginModalOpen && (
-                <Modal onClose={closeModal}>
+                <Modal isOpen={isLoginModalOpen} onClose={closeModal}>
                     <LoginModal onSuccess={closeModal} />
                 </Modal>
             )}
             {isRegisterModalOpen && (
-                <Modal onClose={closeModal}>
+                <Modal  isOpen={isRegisterModalOpen} onClose={closeModal}>
                     <RegistrationModal onSuccess={closeModal} />
                 </Modal>
             )}

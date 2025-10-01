@@ -14,19 +14,22 @@ const FavoritesPage = lazy(() => import('../../pages/FavoritesPage/FavoritesPage
 
 function App() {
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        dispatch(setUser(user));
+        dispatch(setUser({
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+        }));
       } else {
         dispatch(clearUser());
       }
     });
     return () => unsubscribe();
   }, [dispatch]);
-
-
+  
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
