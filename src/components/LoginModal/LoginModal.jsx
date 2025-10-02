@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { loginUser } from "../../redux/auth/operations";
 
 const LoginModal = ({ onSuccess }) => {
@@ -9,7 +10,7 @@ const LoginModal = ({ onSuccess }) => {
 
     const validationSchema = Yup.object({
         email: Yup.string().email("Invalid email address").required("*Required"),
-        password: Yup.string().min(6, "Must be at least 6 characters").required("*Required"),
+        password: Yup.string().min(6, "Too Short!").required("*Required"),
     });
 
     const {
@@ -31,6 +32,12 @@ const LoginModal = ({ onSuccess }) => {
         }
     };
 
+    const [showPassword, setShowPassword] = useState(false);
+    
+    const togglePassword = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <>
             <div>
@@ -44,7 +51,8 @@ const LoginModal = ({ onSuccess }) => {
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
-                        <input id="password" {...register("password")} placeholder="Password" />
+                        <input id="password" {...register("password")} type={showPassword ? "text" : "password"} placeholder="Password" />
+                        <img onClick={togglePassword} src={showPassword ? "/icons/eye.svg" : "/icons/eye-off.svg"} alt="show" />
                         {errors.password && <p>{errors.password.message}</p>}
                     </div>
                     <button type="submit">Log In</button>

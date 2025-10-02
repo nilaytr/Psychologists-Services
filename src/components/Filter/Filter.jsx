@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/psychologists/slice";
+import css from "./Filter.module.css";
 
 const Filter = () => {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const Filter = () => {
     return (
         <>
             <span>Filters</span>
-            <select onChange={handleFilterChange} defaultValue={defaultOption}>
+            <select onChange={handleFilterChange} defaultValue={defaultOption} className={css.filterDropdown}>
                 {options.map((option, index) => (
                     <option key={index} value={option}>
                         {option}

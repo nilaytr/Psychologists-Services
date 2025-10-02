@@ -78,9 +78,7 @@ const PsychologistItem = ({ psychologist }) => {
             </ul>
             <div>{about}</div>
             {!showReadMore && (
-                <button onClick={handleReadMore}>
-                    Read more
-                </button>
+                <button onClick={handleReadMore}>Read more</button>
             )}
             {showReadMore && (
                 <ReadMore psychologist={psychologist} />

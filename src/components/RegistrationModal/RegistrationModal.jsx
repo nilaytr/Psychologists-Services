@@ -2,15 +2,17 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
 import { registerUser } from "../../redux/auth/operations";
+import css from "./RegistrationModal.module.css";
 
 const RegistrationModal = ({ onSuccess }) => {
     const dispatch = useDispatch();
 
     const validationSchema = Yup.object({
-        name: Yup.string().min(3, 'Must be at least 3 characters').required("*Required"),
+        name: Yup.string().min(3, "Too Short!").max(50, 'Too Long!').required("Required"),
         email: Yup.string().email("Invalid email address").required("*Required"),
-        password: Yup.string().min(6, "Must be at least 6 characters").required("*Required"),
+        password: Yup.string().min(6, "Too Short!").required("*Required"),
     });
 
     const {
@@ -33,6 +35,12 @@ const RegistrationModal = ({ onSuccess }) => {
         }
     };
 
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePassword = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <>
             <div>
@@ -41,15 +49,19 @@ const RegistrationModal = ({ onSuccess }) => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
                         <label htmlFor="name">Name</label>
-                        <input id="name" {...register("name")} placeholder="Name" name="name" error={errors.name} />
+                        <input id="name" {...register("name")} placeholder="Name" />
+                        {errors.name && <p className={css.error}>{errors.name.message}</p>}
                     </div>
                     <div>
                         <label htmlFor="email">Email</label>
-                        <input id="email" {...register("email")} placeholder="Email" name="email" error={errors.email} />
+                        <input id="email" {...register("email")} placeholder="Email" />
+                        {errors.email && <p className={css.error}>{errors.email.message}</p>}
                     </div>
                     <div>
                         <label htmlFor="password">Password</label>
-                        <input id="password" {...register("password")} placeholder="Password" name="password" error={errors.password} />
+                        <input id="password" {...register("password")} type={showPassword ? "text" : "password"} placeholder="Password" />
+                        <img onClick={togglePassword} src={showPassword ? "/icons/eye.svg" : "/icons/eye-off.svg"} alt="show" />
+                        {errors.password && <p className={css.error}>{errors.password.message}</p>}
                     </div>
                     <button type="submit">Sign Up</button>
                 </form>

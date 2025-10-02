@@ -64,9 +64,7 @@ const Psychologists = () => {
                 ))}
             </div>
             {needVisiblePsychologists && (
-                <button onClick={handleLoadMore}>
-                    Load more
-                </button>
+                <button onClick={handleLoadMore}>Load more</button>
             )}
         </>
     );

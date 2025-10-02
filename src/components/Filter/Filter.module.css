@@ -1,0 +1,13 @@
+.filterDropdown {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+   
+    outline: none;
+    cursor: pointer;
+}
+
+.filterDropdown option {
+    padding: 8px;
+}

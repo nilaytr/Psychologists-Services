@@ -55,9 +55,7 @@ const Favorites = () => {
                 ))}
             </div>
             {needVisibleFavorites && (
-                <button onClick={handleLoadMore}>
-                    Load more
-                </button>
+                <button onClick={handleLoadMore}>Load more</button>
             )}
         </>
     );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../redux/auth/selectors";
 import AppointmentModal from "../AppointmentModal/AppointmentModal";
+import Modal from "../Modal/Modal";
 import Swal from "sweetalert2";
 
 const ReadMore = ({ psychologist }) => {
@@ -45,14 +46,10 @@ const ReadMore = ({ psychologist }) => {
                     <li>No reviews available.</li>
                 )}
             </ul>
-
-            <button onClick={handleShowModal}>
-                Make an appointment
-            </button>
-
-            {showModal && (
-                <AppointmentModal psychologist={psychologist} onClose={closeModal} />
-            )}
+            <button onClick={handleShowModal}>Make an appointment</button>
+            <Modal isOpen={showModal} onClose={closeModal}>
+                <AppointmentModal psychologist={psychologist} onSuccess={closeModal} />
+            </Modal>
         </div>
     );
 };

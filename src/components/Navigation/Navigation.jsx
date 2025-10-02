@@ -86,7 +86,7 @@ const Navigation = () => {
                 </Modal>
             )}
             {isRegisterModalOpen && (
-                <Modal  isOpen={isRegisterModalOpen} onClose={closeModal}>
+                <Modal isOpen={isRegisterModalOpen} onClose={closeModal}>
                     <RegistrationModal onSuccess={closeModal} />
                 </Modal>
             )}
