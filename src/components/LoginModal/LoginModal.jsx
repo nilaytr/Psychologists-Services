@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { loginUser } from "../../redux/auth/operations";
+import css from "./LoginModal.module.css";
 
 const LoginModal = ({ onSuccess }) => {
     const dispatch = useDispatch();
@@ -40,22 +41,22 @@ const LoginModal = ({ onSuccess }) => {
 
     return (
         <>
-            <div>
+            <div className={css.loginModal}>
                 <h1>Log In</h1>
                 <p>Welcome back! Please enter your credentials to access your account and continue your search for a psychologist.</p>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div>
+                <form className={css.loginForm} onSubmit={handleSubmit(onSubmit)}>
+                    <div className={css.inputLogin}>
                         <label htmlFor="email">Email</label>
                         <input id="email" {...register("email")} placeholder="Email" />
                         {errors.email && <p>{errors.email.message}</p>}
                     </div>
-                    <div>
+                    <div className={css.inputLogin}>
                         <label htmlFor="password">Password</label>
                         <input id="password" {...register("password")} type={showPassword ? "text" : "password"} placeholder="Password" />
                         <img onClick={togglePassword} src={showPassword ? "/icons/eye.svg" : "/icons/eye-off.svg"} alt="show" />
                         {errors.password && <p>{errors.password.message}</p>}
                     </div>
-                    <button type="submit">Log In</button>
+                    <button className={css.loginButton} type="submit">Log In</button>
                 </form>    
             </div>
         </>

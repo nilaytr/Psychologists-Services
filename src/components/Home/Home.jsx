@@ -7,17 +7,21 @@ const Home = () => {
 
     return (
         <>
-            <div>
-                <img src={background} alt="background" />
-                <img src="/icons/block.svg" alt="block" />
-                <img src="/icons/Group.svg" alt="group" />
-                <div className={css.rectangleStack}>
-                    <img src="/icons/Rectangle.svg" alt="rectangle" />
-                    <img src="/icons/question.svg" alt="question" />
+            <div className={css.homeWrapper}>
+                <div className={css.textWrapper}>
+                    <h1>The road to the <span>depths</span> of the human soul</h1>
+                    <h3>We help you to reveal your potential, overcome challenges and find a guide in your own life with the help of our experienced psychologists.</h3>
+                    <button type="button" className={css.homeButton} onClick={() => navigate("/psychologists")}>Get started 🡥</button>
                 </div>
-                <h1>The road to the depths of the human soul</h1>
-                <p>We help you to reveal your potential, overcome challenges and find a guide in your own life with the help of our experienced psychologists.</p>
-                <button onClick={() => navigate("/psychologists")}>Get started 🡥</button>
+                <div className={css.imgWrapper}>
+                    <img src={background} alt="background" className={css.bgPicture} />
+                    <img src="/icons/block.svg" alt="block" className={css.block} />
+                    <img src="/icons/Group.svg" alt="group" className={css.group} />
+                    <div className={css.rectangleStack}>
+                        <img src="/icons/Rectangle.svg" alt="rectangle" />
+                        <img src="/icons/question.svg" alt="question" className={css.question} />
+                    </div>
+                </div>
             </div>
         </>
     );

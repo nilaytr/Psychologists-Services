@@ -41,39 +41,50 @@ const Navigation = () => {
     
     return (
         <>
-            <div className={`${css.navigation} ${isPsy ? css.psyColor : ""}`}>
-                <nav>
-                    <NavLink to="/">
-                        <img src={logo} alt="psychologists services logo" />
-                    </NavLink>
-                    <ul>
-                        <li>
-                            <NavLink to="/">Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/psychologists">Psychologists</NavLink>
-                        </li>
-                        {user && (
+            <div className={css.navContainer}>
+                <div className={`${css.navigation} ${isPsy ? css.psyColor : ""}`}>
+                    <nav>
+                        <div className={css.navLeft}>
+                            <NavLink to="/" className={css.logo}>
+                                <img src={logo} alt="psychologists services logo" />
+                            </NavLink>
+                        </div>
+                        <ul className={css.navList}>
                             <li>
-                                <NavLink to="/favorites">Favorites</NavLink>
+                                <NavLink to="/"
+                                    className={({ isActive }) =>
+                                        isActive ? `${css.navLink} ${css.active}` : css.navLink}>Home
+                                </NavLink>
                             </li>
-                        )}
-                    </ul>
-                </nav>
-            </div>
-            <div>
-                {user ? (
-                    <div>
-                        <img src="/icons/image.svg" alt="user avatar" />
-                        <span>{user.displayName}</span>
-                        <button onClick={handleLogoutClick}>Log Out</button>
-                    </div>
-                ) : (
-                        <div>
-                            <button onClick={handleLoginClick}>Log In</button>
-                            <button onClick={handleRegisterClick}>Registration</button>
-                    </div>
-                )}
+                            <li>
+                                <NavLink to="/psychologists"
+                                    className={({ isActive }) => isActive ? `${css.navLink} ${css.active}` : css.navLink}>Psychologists
+                                </NavLink>
+                            </li>
+                            {user && (
+                                <li>
+                                    <NavLink to="/favorites"
+                                        className={({ isActive }) => isActive ? `${css.navLink} ${css.active}` : css.navLink}>Favorites
+                                    </NavLink>
+                                </li>
+                            )}
+                        </ul>
+                        <div className={css.userContainer}>
+                            {user ? (
+                                <div className={css.userBlock}>
+                                    <img src="/icons/image.svg" alt="user avatar" />
+                                    <span>{user.displayName}</span>
+                                    <button className={css.buttonOut} onClick={handleLogoutClick}>Log out</button>
+                                </div>
+                            ) : (
+                                    <div className={css.buttonContainer}>
+                                        <button className={css.buttonLog} onClick={handleLoginClick}>Log In</button>
+                                        <button className={css.buttonReg} onClick={handleRegisterClick}>Registration</button>
+                                </div>
+                            )}
+                        </div>
+                    </nav>
+                </div>
             </div>
             <main>
                 <Suspense fallback={<Loader />}>

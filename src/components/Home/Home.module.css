@@ -1,0 +1,139 @@
+.homeWrapper {
+    margin-top: 30px;
+    margin-left: 30px;
+    max-height: 800px;
+}
+
+.textWrapper {
+    width: 595px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 128px;
+    position: relative;
+    top: 60px;    
+}
+
+.textWrapper h1 {
+    color: #191A15;
+    font-weight: 600;
+    font-style: semi-bold;
+    font-size: 80px;
+    line-height: 82px;
+    width: 595px;
+    height: 246px;
+    letter-spacing: -2%;
+}
+
+.textWrapper h1 span {
+    color: #54BE96;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 80px;
+    line-height: 82px;
+    letter-spacing: -2%;
+}
+
+.textWrapper h3 {
+    color: #191A15;
+    font-weight: 540;
+    font-style: medium;
+    font-size: 18px;
+    line-height: 24px;
+    width: 510px;
+    height: 72px;
+    letter-spacing: -2%;
+}
+
+.homeButton {
+    width: 235px;
+    height: 60px;
+    background-color: #54BE96;
+    color: #FBFBFB;
+    font-weight: 500;
+    font-style: medium;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -1%;
+    border-radius: 30px;
+    gap: 18px;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 15px;
+}
+
+.homeButton:hover {
+    background-color: #36A379;
+}
+
+.imgWrapper {
+    position: relative;
+    box-sizing: border-box;
+    width: 464px;
+    height: 526px;
+    border-radius: 10px;
+    margin-left: 850px;
+    bottom: 420px;
+}
+
+.bgPicture {
+    position: relative;
+    box-sizing: border-box;
+    width: 464px;
+    height: 526px;
+    border-radius: 10px;
+    background: url("../../assets/homePhoto.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+}
+
+.block {
+    position: absolute;
+    top: 65%;
+    left: -30%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 311px;
+    height: 118px;
+    padding: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.group {
+    position: absolute;
+    top: 3%;
+    left: 90%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    width: 60px;
+    height: 60px;
+    padding: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.rectangleStack {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    top: 200px;
+    left: -8%;
+}
+
+.rectangleStack img.question {
+    position: absolute;
+    color: #FBFBFB;
+    width: 10px;
+    top: 35%;
+    left: 45%;
+}

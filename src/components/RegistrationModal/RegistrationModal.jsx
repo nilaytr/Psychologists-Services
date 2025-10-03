@@ -43,27 +43,27 @@ const RegistrationModal = ({ onSuccess }) => {
 
     return (
         <>
-            <div>
+            <div className={css.registerModal}>
                 <h1>Registration</h1>
                 <p>Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.</p>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div>
+                <form className={css.registerForm} onSubmit={handleSubmit(onSubmit)}>
+                    <div className={css.inputRegister}>
                         <label htmlFor="name">Name</label>
                         <input id="name" {...register("name")} placeholder="Name" />
-                        {errors.name && <p className={css.error}>{errors.name.message}</p>}
+                        {errors.name && <p>{errors.name.message}</p>}
                     </div>
-                    <div>
+                    <div className={css.inputRegister}>
                         <label htmlFor="email">Email</label>
                         <input id="email" {...register("email")} placeholder="Email" />
-                        {errors.email && <p className={css.error}>{errors.email.message}</p>}
+                        {errors.email && <p>{errors.email.message}</p>}
                     </div>
-                    <div>
+                    <div className={css.inputRegister}>
                         <label htmlFor="password">Password</label>
                         <input id="password" {...register("password")} type={showPassword ? "text" : "password"} placeholder="Password" />
                         <img onClick={togglePassword} src={showPassword ? "/icons/eye.svg" : "/icons/eye-off.svg"} alt="show" />
-                        {errors.password && <p className={css.error}>{errors.password.message}</p>}
+                        {errors.password && <p>{errors.password.message}</p>}
                     </div>
-                    <button type="submit">Sign Up</button>
+                    <button className={css.registerButton} type="submit">Sign Up</button>
                 </form>
             </div>
         </>
