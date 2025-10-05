@@ -44,19 +44,21 @@ const Favorites = () => {
 
     return (
         <>
-            <div>
-                <Filter />
-                {favorites.length === 0 && <p className={css.empty}>No favorite psychologists.</p>}
-                {visibleFavorites.map((psychologist) => (
-                    <PsychologistItem
-                        key={psychologist.id}
-                        psychologist={psychologist}
-                    />
-                ))}
+            <div className={css.favoritesWrapper}>
+                <div>
+                    <Filter />
+                    {favorites.length === 0 && <p className={css.empty}>No favorite psychologists.</p>}
+                    {visibleFavorites.map((psychologist) => (
+                        <PsychologistItem
+                            key={psychologist.id}
+                            psychologist={psychologist}
+                        />
+                    ))}
+                </div>
+                {needVisibleFavorites && (
+                    <button onClick={handleLoadMore} className={css.loadMore}>Load more</button>
+                )}
             </div>
-            {needVisibleFavorites && (
-                <button onClick={handleLoadMore}>Load more</button>
-            )}
         </>
     );
 };

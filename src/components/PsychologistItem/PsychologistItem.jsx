@@ -5,6 +5,7 @@ import { selectFavorites } from "../../redux/favorites/selectors";
 import { selectUser } from "../../redux/auth/selectors";
 import ReadMore from "../ReadMore/ReadMore";
 import Swal from "sweetalert2";
+import css from "./PsychologistItem.module.css";
 
 const PsychologistItem = ({ psychologist }) => {
     const {
@@ -62,28 +63,44 @@ const PsychologistItem = ({ psychologist }) => {
     };
     
     return (
-        <div>
-            <img src={avatar_url} alt={name} />
-            <h2>{name}</h2>
-            <p>Rating: {rating}</p>
-            <p>Price / 1 hour: {price_per_hour}</p>
-            <button onClick={handleFavorite}>
-                <img src={`/icons/${isFavorite ? "filledHeart" : "emptyHeart"}.svg`} alt="Favourite" />
-            </button>
-            <ul>
-                <li>Experience: {experience}</li>
-                <li>License: {license}</li>
-                <li>Specialization: {specialization}</li>
-                <li>Initial consultation: {initial_consultation}</li>
-            </ul>
-            <div>{about}</div>
-            {!showReadMore && (
-                <button onClick={handleReadMore}>Read more</button>
-            )}
-            {showReadMore && (
-                <ReadMore psychologist={psychologist} />
-            )}
-        </div>
+        <li  className={`${css.psychologistItem} ${showReadMore ? css.expanded : ""}`}>
+            <div className={css.avatarWrapper}>
+                <img src={avatar_url} alt={name} />
+            </div>
+            <div className={css.infoWrapper}>
+                <div className={css.nameWrapper}>
+                    <p>Psychologist</p>
+                    <h2>{name}</h2>
+                </div>
+                <div className={css.rightWrapper}>
+                    <div className={css.ratingWrapper}>
+                        <img src="/icons/Star.svg" alt="star" />
+                        <p>Rating: {rating}</p>
+                    </div>
+                    <div className={css.buttonWrapper}>
+                        <p className={css.price}>Price / 1 hour: <span>{price_per_hour}$</span></p>
+                        <button onClick={handleFavorite} className={css.buttonFav}>
+                            <img src={`/icons/${isFavorite ? "filledHeart" : "emptyHeart"}.svg`} alt="Favourite" />
+                        </button>
+                    </div>
+                </div>
+                <div className={css.descWrapper}>
+                    <ul className={css.listWrapper}>
+                        <li>Experience: <span>{experience}</span></li>
+                        <li>License: <span>{license}</span></li>
+                        <li>Specialization: <span>{specialization}</span></li>
+                        <li>Initial consultation: <span>{initial_consultation}</span></li>
+                    </ul>
+                    <div className={css.aboutWrapper}>{about}</div>
+                    {!showReadMore && (
+                        <button onClick={handleReadMore} className={css.readMoreBtn}>Read more</button>
+                    )}
+                    {showReadMore && (
+                        <ReadMore psychologist={psychologist} />
+                    )}
+                </div>
+            </div>
+        </li>
     );
 };
 

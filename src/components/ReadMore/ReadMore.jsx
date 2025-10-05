@@ -4,6 +4,7 @@ import { selectUser } from "../../redux/auth/selectors";
 import AppointmentModal from "../AppointmentModal/AppointmentModal";
 import Modal from "../Modal/Modal";
 import Swal from "sweetalert2";
+import css from "./ReadMore.module.css";
 
 const ReadMore = ({ psychologist }) => {
     const user = useSelector(selectUser);
@@ -25,28 +26,29 @@ const ReadMore = ({ psychologist }) => {
     const closeModal = () => setShowModal(false);
 
     return (
-        <div className="read-more-content">
-            <h3>Reviews</h3>
-            <ul>
+        <div>
+            <ul className={css.reviewList}>
                 {psychologist?.reviews?.length > 0 ? (
                     psychologist.reviews.map((review, index) => (
                         <li key={review.id || index}>
-                            <div>
+                            <div className={css.avatar}>
                                 {review.reviewer ? review.reviewer[0].toUpperCase() : "?"}
                             </div>
-                            <div>{review.reviewer || "Anonymous"}</div>
-                            <div>
-                                <img src="/icons/Star.svg" alt="star" />
-                                <p>{review.rating}</p>
+                            <div className={css.reviewerInfo}>
+                                <div className={css.reviewerName}>{review.reviewer || "Anonymous"}</div>
+                                <div className={css.ratingRev}>
+                                    <img src="/icons/Star.svg" alt="star" />
+                                    <p>{review.rating}</p>
+                                </div>
                             </div>
-                            <div>{review.comment}</div>
+                            <div className={css.comment}>{review.comment}</div>
                         </li>
                     ))
                 ) : (
                     <li>No reviews available.</li>
                 )}
             </ul>
-            <button onClick={handleShowModal}>Make an appointment</button>
+            <button onClick={handleShowModal} className={css.appointmentBtn}>Make an appointment</button>
             <Modal isOpen={showModal} onClose={closeModal}>
                 <AppointmentModal psychologist={psychologist} onSuccess={closeModal} />
             </Modal>

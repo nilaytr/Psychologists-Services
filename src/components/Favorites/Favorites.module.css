@@ -1,0 +1,39 @@
+.favoritesWrapper {
+    padding-bottom: 50px;
+}
+
+.empty {
+    font-size: 16px;
+    color: #191A15;
+    font-weight: 500;
+    font-style: regular;
+    line-height: 20px;
+    letter-spacing: -1%;
+    margin-top: 30px;
+    margin-left: 160px;
+}
+
+.loadMore {
+    width: 176px;
+    height: 48px;
+    background-color: #54BE96;
+    color: #FBFBFB;
+    font-weight: 500;
+    font-style: medium;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -1%;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-left: 670px;
+}
+
+.loadMore:hover {
+    background-color: #36A379;
+}

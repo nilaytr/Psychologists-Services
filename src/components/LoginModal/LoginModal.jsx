@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { loginUser } from "../../redux/auth/operations";
 import css from "./LoginModal.module.css";
+import { toast, Toaster } from 'react-hot-toast';
 
 const LoginModal = ({ onSuccess }) => {
     const dispatch = useDispatch();
@@ -28,8 +29,12 @@ const LoginModal = ({ onSuccess }) => {
     
     const onSubmit = async (values) => {
         const result = await dispatch(loginUser(values));
+        
         if (result.meta.requestStatus === "fulfilled") {
+            toast.success("Login successful!");
             if (onSuccess) onSuccess();
+        } else if (result.meta.requestStatus === "rejected") {
+            toast.error("Invalid email or password. Please try again.");
         }
     };
 
@@ -42,6 +47,7 @@ const LoginModal = ({ onSuccess }) => {
     return (
         <>
             <div className={css.loginModal}>
+                <Toaster position="top-center" />
                 <h1>Log In</h1>
                 <p>Welcome back! Please enter your credentials to access your account and continue your search for a psychologist.</p>
                 <form className={css.loginForm} onSubmit={handleSubmit(onSubmit)}>

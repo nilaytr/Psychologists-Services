@@ -1,0 +1,87 @@
+.reviewList {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.reviewList li:not(:last-child) {
+    margin-bottom: 25px;
+}
+
+.reviewerInfo {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 5px;
+    padding-left: 60px;
+    margin-top: -40px;
+}
+
+.reviewerName {
+    font-weight: 500;
+    font-size: 16px;
+    font-style: medium;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #191A15;
+}
+
+.avatar {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0%;
+    font-style: medium;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(84, 190, 150, 0.2);
+    color: #54BE96;
+}
+
+.ratingRev {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;   
+}
+
+.ratingRev p {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0%;
+    font-style: medium;
+}
+
+.comment {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: rgba(25, 26, 21, 0.5);
+    margin-top: 20px;
+}
+
+.appointmentBtn {
+    width: 227px;
+    height: 48px;
+    border: none;
+    border-radius: 30px;
+    background-color: #54BE96;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: medium;
+    line-height: 20px;
+    letter-spacing: -1%;
+    color: #FBFBFB;
+    cursor: pointer;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.appointmentBtn:hover {
+    background-color: #36A379;
+}

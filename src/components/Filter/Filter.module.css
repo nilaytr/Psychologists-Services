@@ -1,13 +1,51 @@
+.filterWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-left: 120px;
+    margin-bottom: 32px;
+    margin-top: 64px;
+}
+
+.filterWrapper span {
+    font-weight: 500;
+    font-size: 14px;
+    font-style: medium;
+    line-height: 18px;
+    letter-spacing: 0%;
+    color: #8A8A89;
+    margin-left: 40px;
+}
+
 .filterDropdown {
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
+    width: 226px;
+    height: 48px;
+    border: none;
+    border-radius: 14px;
+    background-color: #54BE96;
+    color: #FBFBFB;
+    font-weight: 500;
     font-size: 16px;
-   
-    outline: none;
+    line-height: 20px;
+    padding: 0 16px;
+    margin-left: 40px;
     cursor: pointer;
+    outline: none;
+    appearance: none;
+    background-image: url("/icons/filterDown.svg");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 15px;
 }
 
 .filterDropdown option {
-    padding: 8px;
+    color: #191A15;
+    background-color: #FBFBFB;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px;
+}
+
+select::-ms-expand {
+    display: none;
 }

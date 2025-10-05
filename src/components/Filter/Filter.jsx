@@ -21,14 +21,16 @@ const Filter = () => {
 
     return (
         <>
-            <span>Filters</span>
-            <select onChange={handleFilterChange} defaultValue={defaultOption} className={css.filterDropdown}>
-                {options.map((option, index) => (
-                    <option key={index} value={option}>
-                        {option}
-                    </option>
-                ))}
-            </select>
+            <div className={css.filterWrapper}>
+                <span>Filters</span>
+                <select onChange={handleFilterChange} defaultValue={defaultOption} className={css.filterDropdown}>
+                    {options.map((option, index) => (
+                        <option key={index} value={option}>
+                            {option}
+                        </option>
+                    ))}
+                </select>
+            </div>
         </>
     );
 };

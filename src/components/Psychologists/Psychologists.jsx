@@ -5,6 +5,7 @@ import { setPage, resetPage } from "../../redux/psychologists/slice";
 import { fetchPsychologists } from "../../redux/psychologists/operations";
 import Filter from "../Filter/Filter";
 import PsychologistItem from "../PsychologistItem/PsychologistItem";
+import css from "./Psychologists.module.css";
 
 const Psychologists = () => {
     const dispatch = useDispatch();
@@ -54,18 +55,20 @@ const Psychologists = () => {
 
     return (
         <>
-            <div>
-                <Filter />
-                {visiblePsychologists.map((psychologist) => (
-                    <PsychologistItem
-                        key={psychologist.id}
-                        psychologist={psychologist}
-                    />
-                ))}
+            <div className={css.psyWrapper}>
+                <div>
+                    <Filter />
+                    {visiblePsychologists.map((psychologist) => (
+                        <PsychologistItem
+                            key={psychologist.id}
+                            psychologist={psychologist}
+                        />
+                    ))}
+                </div>
+                {needVisiblePsychologists && (
+                    <button onClick={handleLoadMore} className={css.loadMore}>Load more</button>
+                )}
             </div>
-            {needVisiblePsychologists && (
-                <button onClick={handleLoadMore}>Load more</button>
-            )}
         </>
     );
 };

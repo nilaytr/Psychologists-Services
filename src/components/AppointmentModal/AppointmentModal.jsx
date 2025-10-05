@@ -29,42 +29,46 @@ const AppointmentModal = ({ psychologist, onSuccess }) => {
 
     return (
         <>
-            <div >
-                <h2>Make an appointment with a psychologists</h2>
-                <p>You are on the verge of changing your life for the better. Fill out the short form below to book your personal appointment with a professional psychologist. We guarantee confidentiality and respect for your privacy.</p>
-                <div>
-                    <img src={psychologist.avatar_url} className={css.avatarImg} alt="avatar" />
-                    <p>Your psychologists</p>
-                    <h4>{psychologist.name}</h4>
+            <div className={css.overlay}>
+                <div className={css.appointmentModal}>
+                    <h1>Make an appointment with a psychologists</h1>
+                    <p>You are on the verge of changing your life for the better. Fill out the short form below to book your personal appointment with a professional psychologist. We guarantee confidentiality and respect for your privacy.</p>
+                    <div className={css.appointmentInfo}>
+                        <img src={psychologist.avatar_url} className={css.avatarImg} alt="avatar" />
+                        <p>Your psychologists</p>
+                        <h4>{psychologist.name}</h4>
+                    </div>
+                    <form className={css.appointmentForm} onSubmit={handleSubmit(onSubmit)}>
+                        <div className={css.inputAppointment}>
+                            <label htmlFor="name">Name</label>
+                            <input id="name" {...register("name")} placeholder="Name" />
+                            {errors.name && <p>{errors.name.message}</p>}
+                        </div>
+                        <div className={css.phoneAndTime}>
+                            <div className={css.inputAppointment}>
+                                <label htmlFor="phone">Phone</label>
+                                <input id="phone" {...register("phone")} placeholder="+380" />
+                                {errors.phone && <p>{errors.phone.message}</p>}
+                            </div>
+                            <div className={css.inputAppointment}>
+                                <label htmlFor="time">Time</label>
+                                <input id="time" className={css.timeInput} {...register("time")} placeholder="Time" />
+                                {errors.time && <p>{errors.time.message}</p>}
+                            </div>
+                        </div>
+                        <div className={css.inputAppointment}>
+                            <label htmlFor="email">Email</label>
+                            <input id="email" {...register("email")} placeholder="Email" />
+                            {errors.email && <p>{errors.email.message}</p>}
+                        </div>
+                        <div className={css.inputAppointment}>
+                            <label htmlFor="comment">Comment</label>
+                            <textarea id="comment" {...register("comment")} placeholder="Comment" />
+                            {errors.comment && <p>{errors.comment.message}</p>}
+                        </div>
+                        <button className={css.sendButton} type="submit">Send</button>
+                    </form>
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div>
-                        <label htmlFor="name">Name</label>
-                        <input id="name" {...register("name")} placeholder="Name" />
-                        {errors.name && <p>{errors.name.message}</p>}
-                    </div>
-                    <div>
-                        <label htmlFor="phone">Phone</label>
-                        <input id="phone" {...register("phone")} placeholder="+380" />
-                        {errors.phone && <p>{errors.phone.message}</p>}
-                    </div>
-                    <div>
-                        <label htmlFor="time">Time</label>
-                        <input id="time" {...register("time")} placeholder="Time" />
-                        {errors.time && <p>{errors.time.message}</p>}
-                    </div>
-                    <div>
-                        <label htmlFor="email">Email</label>
-                        <input id="email" {...register("email")} placeholder="Email" />
-                        {errors.email && <p>{errors.email.message}</p>}
-                    </div>
-                    <div>
-                        <label htmlFor="comment">Comment</label>
-                        <textarea id="comment" {...register("comment")} placeholder="Comment" />
-                        {errors.comment && <p>{errors.comment.message}</p>}
-                    </div>
-                    <button type="submit">Send</button>
-                </form>
             </div>
         </>
     );

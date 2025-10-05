@@ -61,19 +61,18 @@
 .registerButton {
     width: 438px;
     height: 52px;
-    border: 1px solid rgba(25, 26, 21, 0.1);
+    border: none;
     border-radius: 30px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 20px;
-    letter-spacing: 0%;
-    vertical-align: middle;
-    font-style: regular;
+    letter-spacing: -1%;
+    font-style: medium;
     font-size: 16px;
     outline: none;
-    margin: 5px 64px 64px 64px;
     background-color: #54BE96;
     color: #FBFBFB;
     cursor: pointer;
+    margin: 10px 64px 64px 64px;
 }
 
 .registerButton:hover {

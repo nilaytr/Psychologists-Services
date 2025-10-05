@@ -11,7 +11,7 @@ const Home = () => {
                 <div className={css.textWrapper}>
                     <h1>The road to the <span>depths</span> of the human soul</h1>
                     <h3>We help you to reveal your potential, overcome challenges and find a guide in your own life with the help of our experienced psychologists.</h3>
-                    <button type="button" className={css.homeButton} onClick={() => navigate("/psychologists")}>Get started 🡥</button>
+                    <button type="button" className={css.homeButton} onClick={() => navigate("/psychologists")}>Get started  🡥</button>
                 </div>
                 <div className={css.imgWrapper}>
                     <img src={background} alt="background" className={css.bgPicture} />
