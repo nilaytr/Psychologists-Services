@@ -10,6 +10,7 @@
     gap: 32px;
     margin-left: 160px;
     margin-bottom: 32px;
+    background-color: #FBFBFB;
 }
 
 .avatarWrapper img {
@@ -187,4 +188,113 @@
 
 .expanded {
     height: 590px;
+}
+
+@media (max-width: 1024px) {
+    .psychologistItem {
+        flex-direction: column;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+    }
+
+    .rightWrapper {
+        align-items: flex-start;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+
+    .buttonWrapper {
+        margin-right: 0;
+        margin-top: 0;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .price {
+        margin-left: 0;
+    }
+
+    .nameWrapper {
+        gap: 4px;
+    }
+
+    .avatarWrapper::after {
+        content: "";
+        position: absolute;
+        top: 36px;
+        left: 132px;
+        display: block;
+        width: 11.5px;
+        height: 11.2px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background-color: #38CD3E;
+        border: 2px solid #FFFFFF;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 767px) {
+    .psychologistItem {
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 10px;
+        height: auto;
+    }
+
+    .rightWrapper {
+        align-items: flex-start;
+        margin-top: 15px;
+        margin-right: 0;
+    }
+
+    .buttonWrapper {
+        margin-right: 0;
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .price {
+        margin-left: 0;
+    }
+
+    .nameWrapper h2 {
+        font-size: 20px;
+    }
+
+    .nameWrapper p {
+        font-size: 14px;
+    }
+
+    .listWrapper {
+        gap: 6px;
+    }
+
+    .aboutWrapper {
+        font-size: 14px;
+    }
+
+    .readMoreBtn {
+        margin-left: 0;
+    }
+
+    .avatarWrapper::after {
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: 120px;
+        display: block;
+        width: 11.5px;
+        height: 11.2px;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        background-color: #38CD3E;
+        border: 2px solid #FFFFFF;
+        box-sizing: border-box;
+    }
 }

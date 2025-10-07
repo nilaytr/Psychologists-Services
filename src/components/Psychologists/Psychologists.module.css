@@ -26,3 +26,17 @@
 .loadMore:hover {
     background-color: #36A379;
 }
+
+@media (max-width: 1024px) {
+    .loadMore {
+        margin: 0 auto;
+        max-width: 176px;
+    }
+}
+
+@media (max-width: 767px) {
+    .loadMore {
+        max-width: 176px;
+        margin: 0 auto;
+    }
+}

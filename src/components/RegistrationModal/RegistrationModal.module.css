@@ -86,3 +86,27 @@
     left: 5px;
     top: 25px;
 }
+
+@media (max-width: 1024px) {
+    .inputRegister input {
+        width: 90%;
+        max-width: 380px;
+    }
+
+    .registerButton {
+        width: 90%;
+        max-width: 380px;
+    }
+}
+
+@media (max-width: 767px) {
+    .inputRegister input {
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .registerButton {
+        width: 90%;
+        max-width: 280px;
+    }
+}

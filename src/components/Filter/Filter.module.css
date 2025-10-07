@@ -49,3 +49,35 @@
 select::-ms-expand {
     display: none;
 }
+
+@media (max-width: 1024px) {
+    .filterWrapper {
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+
+    .filterWrapper span {
+        margin-left: 0;
+    }
+
+    .filterDropdown {
+        width: 226px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .filterWrapper {
+        margin-left: 16px;
+        margin-top: 20px;
+    }
+
+    .filterWrapper span {
+        margin-left: 0;
+    }
+
+    .filterDropdown {
+        width: 226px;
+        margin-left: 0;
+    }
+}

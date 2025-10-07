@@ -85,3 +85,27 @@
     left: 5px;
     top: 35px;
 }
+
+@media (max-width: 1024px) {
+    .inputLogin input {
+        width: 90%;
+        max-width: 380px;
+    }
+
+    .loginButton {
+        width: 90%;
+        max-width: 380px;
+    }
+}
+
+@media (max-width: 767px) {
+    .inputLogin input {
+        width: 90%;
+        max-width: 280px;
+    }
+
+    .loginButton {
+        width: 90%;
+        max-width: 280px;
+    }
+}
