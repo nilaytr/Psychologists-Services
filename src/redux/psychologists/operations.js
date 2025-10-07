@@ -3,11 +3,8 @@ import { db } from "../../firebase";
 import { setPsychologists } from "./slice";
 
 export const fetchPsychologists = () => (dispatch) => {
-    console.log("Firebase fetch başladı...");
-    
     const unsubscribe = onValue(ref(db), (snapshot) => {
         const data = snapshot.val();
-        console.log("Firebase’den gelen veri:", data);
         
         if (!data) {
             dispatch(setPsychologists([]));

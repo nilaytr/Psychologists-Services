@@ -6,13 +6,11 @@ import {
     signOut,
 } from "firebase/auth";
 import { auth } from "../../firebase";
-//import { toast } from "react-hot-toast";
 
 export const registerUser = createAsyncThunk(
     "auth/registerUser",
     async ({ name, email, password }, thunkAPI) => {
         try {
-            console.log("Register attempt:", email, password);
             const response = await createUserWithEmailAndPassword(
                 auth,
                 email,
@@ -27,7 +25,6 @@ export const registerUser = createAsyncThunk(
                 displayName: user.displayName,
             };
         } catch (error) {
-            console.error("Register error:", error.code, error.message);
             return thunkAPI.rejectWithValue(error.message);
         }
     }

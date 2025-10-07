@@ -28,8 +28,6 @@ const Modal = ({ children, isOpen, onClose }) => {
     };
     
     if (!isOpen) return null;
-
-    console.log("Rendering modal");
     
     return ReactDOM.createPortal(
         <div className={css.modal} onClick={handleBackDropClick}>

@@ -1,6 +1,8 @@
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from "yup";
+import TimeSelect from './TimeSelect';
+import Swal from "sweetalert2";
 import css from "./AppointmentModal.module.css";
 
 const AppointmentModal = ({ psychologist, onSuccess }) => {
@@ -14,6 +16,8 @@ const AppointmentModal = ({ psychologist, onSuccess }) => {
 
     const {
         register,
+        control,
+        setValue,
         handleSubmit,
         formState: { errors },
         reset,
@@ -22,7 +26,15 @@ const AppointmentModal = ({ psychologist, onSuccess }) => {
     });
 
     const onSubmit = (data) => {
-        console.log("Appointment form submitted:", data);
+        console.log(data);
+        
+        Swal.fire({
+            title: "Appointment Confirmed!",
+            text: "Your appointment has been successfully scheduled 🎉",
+            icon: "success",
+            confirmButtonColor: "#54BE96",
+        });
+        
         if (onSuccess) onSuccess();
         reset();
     };
@@ -52,7 +64,9 @@ const AppointmentModal = ({ psychologist, onSuccess }) => {
                             </div>
                             <div className={css.inputAppointment}>
                                 <label htmlFor="time">Time</label>
-                                <input id="time" className={css.timeInput} {...register("time")} placeholder="Time" />
+                                <Controller name="time" control={control} defaultValue="00:00" render={({ field }) => (
+                                    <TimeSelect field={field} form={{ setValue }} />
+                                )}/>
                                 {errors.time && <p>{errors.time.message}</p>}
                             </div>
                         </div>
