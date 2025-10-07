@@ -1,12 +1,40 @@
-# React + Vite
+# 𝚿 Psychologists Services
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Psychologists Services, kullanıcıların psikolog listelerine göz atabilecekleri, detaylı bilgi edinebilecekleri ve randevu oluşturabilecekleri modern ve tamamen responsive bir web uygulamasıdır. Kullanıcılar platform üzerinde kayıt olabilir, giriş yapabilir, favori psikologlarını yönetebilir, listeyi filtreleyebilir ve kolayca randevu alabilirler.
+Uygulama, yüksek performans ve ölçeklenebilirlik hedefleri doğrultusunda geliştirilmiştir.
 
-Currently, two official plugins are available:
+## 🚀 Teknolojiler
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Ön Uç: React, Redux, React Router
+- Arka Uç: Firebase Real-Time Database
 
-## Expanding the ESLint configuration
+## 🔐 Özellikler
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Kullanıcı Kimlik Doğrulaması: Kayıt ve giriş işlemleri.
+- Gelişmiş Filtreleme: Psikologları fiyata, isme ve popülerliğe göre filtreleme imkânı.
+- Favorilere Ekleme: Psikolog kartlarındaki kalp simgesi ile favorilere ekleme veya çıkarma.
+- Detaylı İnceleme: Psikologların listesine göz atarak fiyatlarını, deneyimlerini ve yorumlarını ayrıntılı şekilde inceleme.
+- Randevu Oluşturma: Modal form aracılığıyla psikologlardan randevu talebi.
+- Responsive Tasarım: 320 pikselden 1440 piksele kadar tüm cihazlarda sorunsuz çalışma optimizasyonu.
+
+## ⚙️ Kurulum ve Çalıştırma
+
+1. Repoyu klonlayın:
+
+git clone https://github.com/nilaytr/Psychologists-Services.git
+
+2. Proje dizinine gidin:
+
+cd Psychologists-Services
+
+3. Bağımlılıkları yükleyin:
+
+npm install
+
+4. Uygulamayı başlatın:
+
+npm run dev
+
+## 💻 Yazar
+
+- [Nilay Türker](https://github.com/nilaytr)
