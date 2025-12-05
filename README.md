@@ -35,6 +35,6 @@ npm install
 
 npm run dev
 
-## 💻 Yazar
+## 💻 Author
 
 - [Nilay Türker](https://github.com/nilaytr)
